@@ -1,13 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
   <title>Client</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="./assets/template/template-assets/css/loader.css" rel="stylesheet" type="text/css" />
+  <script src="./assets/template/template-assets/js/loader.js"></script>
+
+  <!-- BEGIN GLOBAL MANDATORY STYLES -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link href="./assets/template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="./assets/template/template-assets/css/plugins.css" rel="stylesheet" type="text/css" />
+  <!-- END GLOBAL MANDATORY STYLES -->
+
 </head>
 <body>
+
+  <!-- BEGIN LOADER -->
+  <div id="load_screen"> 
+    <div class="loader"> 
+      <div class="loader-content">
+        <div class="spinner-grow align-self-center">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  END LOADER -->
+
   <app-root></app-root>
+
+
+  <!-- START GLOBAL MANDATORY SCRIPTS -->
+  <script src="./assets/template/template-assets/js/libs/jquery-3.1.1.min.js"></script>
+  <script src="./assets/template/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="./assets//template/bootstrap/js/popper.min.js"></script>
+  <script src="./assets/template/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./assets/template/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="./assets/template/template-assets/js/app.js"></script>
+  
+  <script>
+      $(document).ready(function() {
+          App.init();
+      });
+  </script>
+
+  <script src="./assets/template/template-assets/js/custom.js"></script>
+  <!-- END GLOBAL MANDATORY SCRIPTS -->
+
 </body>
 </html>

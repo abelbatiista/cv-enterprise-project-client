@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PageRoutingModule } from './page-routing.module';
 import { PageComponent } from './page.component';
 
+import { SharedModule } from '../../shared/shared.module';
+
 import { 
   DashboardComponent 
 } from './page.index';
@@ -15,7 +17,8 @@ import {
   ],
   imports: [
     CommonModule,
-    PageRoutingModule
+    PageRoutingModule,
+    SharedModule
   ],
   exports: [
     PageComponent

@@ -4,14 +4,16 @@ import { CommonModule } from '@angular/common';
 import {
   FooterComponent,
   HeaderComponent,
-  SidebarComponent
+  SidebarComponent,
+  SubHeaderComponent
 } from './shared.index';
 
 @NgModule({
   declarations: [
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    SubHeaderComponent
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import {
   exports: [
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    SubHeaderComponent
   ]
 })
 export class SharedModule { }
