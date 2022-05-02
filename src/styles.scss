@@ -737,25 +737,6 @@ html {
       color: #805dca; }
     .new-control.new-radio.new-radio-text.radio-dark > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-dark > input:checked ~ span.new-radio-content {
       color: #3b3f5c; }
-  
-/*  Color   */
-/*   Outline checkbox   */
-/*----------Theme Radio---------*/
-/*square radio*/
-/*  Color   */
-/*   Outline Radio   */
-/*  line through colors   */
-
-body {
-  color: #888ea8;
-  height: 100%;
-  font-size: 0.875rem;
-  background: #060818;
-  overflow-x: hidden;
-  overflow-y: auto;
-  letter-spacing: 0.0312rem;
-  font-family: 'Nunito', sans-serif;
-}
 
 /*
 	===============================
@@ -1257,3 +1238,21 @@ body {
       width: 50%; } }
 
 
+/*  Color   */
+/*   Outline checkbox   */
+/*----------Theme Radio---------*/
+/*square radio*/
+/*  Color   */
+/*   Outline Radio   */
+/*  line through colors   */
+
+body {
+  color: #888ea8;
+  height: 100%;
+  font-size: 0.875rem;
+  background: #060818;
+  overflow-x: hidden;
+  overflow-y: auto;
+  letter-spacing: 0.0312rem;
+  font-family: 'Nunito', sans-serif;
+}
