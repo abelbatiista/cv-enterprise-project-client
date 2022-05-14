@@ -1,0 +1,59 @@
+<form id="contact" class="section contact" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="info">
+        <div class="row">
+            <div class="col">
+                <h5 class="">Contact</h5>
+            </div> 
+            <div class="col">
+                <div class="col-md-12 text-right mb-5">
+                    <button type="submit" id="add-work-platforms" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save
+                    </button>
+                </div>
+            </div>
+         </div>
+        <div class="row">
+            <div class="col-md-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" class="form-control mb-4" id="country" placeholder="Country" formControlName="country">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control mb-4" id="address" placeholder="Address" formControlName="adress">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control mb-4" id="location" placeholder="Location" formControlName="location">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control mb-4" id="phone" placeholder="Phone" formControlName="phone">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control mb-4" id="email" placeholder="Email" formControlName="email">
+                        </div>
+                    </div>                                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="website1">Website</label>
+                            <input type="text" class="form-control mb-4" id="website1" placeholder="Website" formControlName="website">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

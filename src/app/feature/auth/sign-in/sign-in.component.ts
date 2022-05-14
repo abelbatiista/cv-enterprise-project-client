@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/service/auth/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../../core/model/auth/user.model';
-import { AuthenticateResponse } from '../../../core/model/auth/authenticate-response.model';
 
 @Component({
   selector: 'app-sign-in',

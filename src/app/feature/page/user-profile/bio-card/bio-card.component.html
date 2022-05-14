@@ -1,0 +1,34 @@
+<div class="bio layout-spacing ">
+    <div class="widget-content widget-content-area">
+        <h3 class="">Bio</h3>
+        <p *ngIf="biography.length > 0;">
+            {{ biography[0].bio }}
+        </p>
+
+        <div class="bio-skill-box">
+
+            <div class="row" *ngIf="workPlataforms.length > 0;">
+                
+                <div class="col-12 col-xl-6 col-lg-12 mb-xl-5 mb-5" *ngFor="let workPlataform of workPlataforms;">
+                    
+                    <div class="d-flex b-skills">
+                        <div>
+                        </div>
+                        <div class="">
+                            <h5>
+                                {{ workPlataform.title }}
+                            </h5>
+                            <p>
+                                {{ workPlataform.description }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>                                
+</div>

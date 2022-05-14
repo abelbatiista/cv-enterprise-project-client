@@ -1,0 +1,26 @@
+<form id="general-info" class="section general-info">
+    <div class="info">
+        <div class="row">
+            <div class="col">
+                <h5 class="">Profile Picture</h5>
+            </div> 
+         </div>
+         <div class="row">
+             <div class="col-12 pb-0">
+                 <div class="form">
+                     <div class="form-group text-center">
+                         <div class="flex items-center cursor-pointer justify-center relative w-16 h-16 rounded-full border-2 border-brand-100 edited">
+                             <label class="label-space" for="file">
+                                 <div>
+                                     <img class="rounded" [src]="url || './assets/template/template-assets/img/90x90.jpg'" width="150" height="150" alt="avatar">
+                                 </div>
+                             </label>
+                             <input id="file" class="absolute w-full h-full mb-4" ref="file" type="file" accept="image/*" (change)="save($event)">
+                             <p>Change profile picture</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+</form>

@@ -2,23 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PageRoutingModule } from './page-routing.module';
-import { PageComponent } from './page.component';
 
 import { SharedModule } from '../../shared/shared.module';
 
+import { AccountSettingsModule } from './account-settings/account-settings.module';
+import { UserProfileModule } from './user-profile/user-profile.module';
+
 import { 
-  DashboardComponent 
+  PageComponent, DashboardComponent
 } from './page.index';
 
 @NgModule({
   declarations: [
     PageComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
     PageRoutingModule,
-    SharedModule
+    SharedModule,
+    AccountSettingsModule,
+    UserProfileModule
   ],
   exports: [
     PageComponent

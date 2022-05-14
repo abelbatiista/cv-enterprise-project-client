@@ -1,0 +1,26 @@
+<div class="work-experience layout-spacing ">
+                
+    <div class="widget-content widget-content-area">
+
+        <h3 class="">Work Experience</h3>
+        
+        <div class="timeline-alter" *ngIf="workExperiences.length > 0">
+        
+            <div class="item-timeline" *ngFor="let workExperience of workExperiences;">
+                <div class="t-meta-date">
+                    <p class="">
+                        {{ workExperience.endDate | date:'dd MMM yyyy' }}
+                    </p>
+                </div>
+                <div class="t-dot">
+                </div>
+                <div class="t-text">
+                    <p>{{ workExperience.companyName }}</p>
+                    <p>{{ workExperience.jobTitle }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

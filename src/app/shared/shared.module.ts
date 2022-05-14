@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+import { CoreModule } from '../core/core.module';
 
 import {
   FooterComponent,
@@ -16,7 +19,9 @@ import {
     SubHeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule,
+    RouterModule
   ],
   exports: [
     FooterComponent,

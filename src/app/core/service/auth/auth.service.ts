@@ -5,6 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../model/auth/user.model';
 import { AuthenticateResponse } from '../../model/auth/authenticate-response.model';
+import { ApplicationIdentityUser } from '../../model/auth/application-identity-user.model';
+import { Setter } from '../../model/auth/private/setter.model';
+import { UserDetails } from '../../model/user-details/user-details.model';
+import { ProfilePicture } from '../../abstract/profile-picture/profile-picture.class';
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +25,39 @@ export class AuthService {
   private setToken(token: string): void {
     localStorage.setItem('AUTH_TOKEN', token);
   }
-
-  private get token(): string {
-    return localStorage.getItem('AUTH_TOKEN')! || '';
-  }
-
+  
   private setUser(user: User): void {
     const jsonUser: string = JSON.stringify(user);
     localStorage.setItem('AUTH_USER', jsonUser);
   }
 
-  private get user(): User | undefined {
+  private setApplicationIdentityUser(applicationIdentityUser: ApplicationIdentityUser): void {
+    const jsonapplicationIdentityUser: string = JSON.stringify(applicationIdentityUser);
+    localStorage.setItem('AUTH_APPLICATION_IDENTITY_USER', jsonapplicationIdentityUser);
+  }
+
+  private setUserDetails(userDetails: UserDetails): void {
+    const jsonUserDetails: string = JSON.stringify(userDetails);
+    localStorage.setItem('AUTH_USER_DETAILS', jsonUserDetails);
+  }
+
+  private setImageUrl(imageUrl: string): void {
+    localStorage.setItem('AUTH_IMAGE_URL', imageUrl);
+  }
+  
+  private setters(setter: Setter): void {
+    this.setToken(setter.token!);
+    this.setUser(setter.user!);
+    this.setApplicationIdentityUser(setter.applicationIdentityUser!);
+    this.setUserDetails(setter.userDetails!);
+    this.setImageUrl(setter.imageUrl!);
+  }
+
+  public get token(): string {
+    return localStorage.getItem('AUTH_TOKEN')! || '';
+  }
+  
+  public get user(): User | undefined {
     if(localStorage.getItem('AUTH_USER')) {
       const user: User = JSON.parse(localStorage.getItem('AUTH_USER')!);
       return user;
@@ -39,13 +65,28 @@ export class AuthService {
     return;
   }
 
-  private setters(token: string, user: User): void {
-    this.setToken(token);
-    this.setUser(user);
+  public get applicationIdentityUser(): ApplicationIdentityUser | undefined {
+    if(localStorage.getItem('AUTH_APPLICATION_IDENTITY_USER')) {
+      const applicationIdentityUser: ApplicationIdentityUser = JSON.parse(localStorage.getItem('AUTH_APPLICATION_IDENTITY_USER')!);
+      return applicationIdentityUser;
+    }
+    return;
   }
 
-  public users(): Observable<User[]> {
-    return this._http.get<User[]>(`${this.base_url}/${this.controller}/Users`);
+  public get userDetails(): UserDetails | undefined {
+    if(localStorage.getItem('AUTH_USER_DETAILS')) {
+      const userDetails: UserDetails = JSON.parse(localStorage.getItem('AUTH_USER_DETAILS')!);
+      return userDetails;
+    }
+    return;
+  }
+
+  public get imageUrl(): string {
+    return localStorage.getItem('AUTH_IMAGE_URL')! || '';
+  }
+
+  public users(): Observable<ApplicationIdentityUser[]> {
+    return this._http.get<ApplicationIdentityUser[]>(`${this.base_url}/${this.controller}/Users`);
   }
 
   public signUp(user: User): Observable<AuthenticateResponse> {
@@ -56,8 +97,9 @@ export class AuthService {
     return this._http.post<AuthenticateResponse>(`${this.base_url}/${this.controller}/SignIn`, user)
       .pipe(
         tap((authenticateResponse: AuthenticateResponse): void => {
-          const { token, user }: any = authenticateResponse;
-          this.setters(token, user);
+          const { token, user, applicationIdentityUser, userDetails }: any = authenticateResponse;
+          const imageUrl: string = `${this.base_url}/File/Download?userDetailsId=${userDetails.id}`;
+          this.setters({token, user, applicationIdentityUser, userDetails, imageUrl});
         })
       );
   }
@@ -75,8 +117,9 @@ export class AuthService {
     return this._http.get<AuthenticateResponse>(`${this.base_url}/${this.controller}/Refresh`)
       .pipe(
         tap((authenticateResponse: AuthenticateResponse): void => {
-          const { token, user }: any = authenticateResponse;
-          this.setters(token, user);
+          const { token, user, applicationIdentityUser, userDetails }: any = authenticateResponse;
+          const imageUrl: string = `${this.base_url}/File/Download?userDetailsId=${userDetails.id}`;
+          this.setters({token, user, applicationIdentityUser, userDetails, imageUrl});
         }),
         map((): boolean => {
           return true;

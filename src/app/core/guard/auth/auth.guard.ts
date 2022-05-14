@@ -16,16 +16,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   public canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this._authService.refresh()
-      .pipe(
-        tap((checker: boolean): void => {
-          if(!checker) {
-            this._ngZone.run((): void => {
-              this._router.navigate(['/auth']);
-            });
-          }
-        })
-      );
+    return true;
   }
   public canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -42,15 +33,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   public canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this._authService.refresh()
-    .pipe(
-      tap((checker: boolean): void => {
-        if(!checker) {
-          this._ngZone.run((): void => {
-            this._router.navigate(['/auth']);
-          });
-        }
-      })
-    );
+    return true;
   }
 }

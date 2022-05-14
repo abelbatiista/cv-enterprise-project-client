@@ -1,0 +1,24 @@
+<div class="education layout-spacing ">
+    <div class="widget-content widget-content-area">
+        <h3 class="">Education</h3>
+        <div class="timeline-alter" *ngIf="educations.length > 0">
+            <div class="item-timeline" *ngFor="let education of educations;">
+                <div class="t-meta-date">
+                    <p class="">
+                        {{ education.endDate | date:'dd MMM yyyy' }}
+                    </p>
+                </div>
+                <div class="t-dot">
+                </div>
+                <div class="t-text">
+                    <p>
+                        {{ education.institutionName }}
+                    </p>
+                    <p>
+                        {{ education.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
