@@ -14,12 +14,15 @@ export class HeaderComponent implements OnInit {
 
   public user: User | undefined;
   public url: string = '';
+  public title: string = '';
 
   public constructor(
     private _authService: AuthService,
     private _fileService: FileService,
     private _router: Router
-  ) { }
+  ) {
+    this.title = 'MegaCV';
+  }
 
   public ngOnInit(): void {
     this.user = this._authService.user;

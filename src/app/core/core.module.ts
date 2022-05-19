@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import {
-  NullablePipe
+  NullablePipe, UnderMaintenanceComponent
 } from './core.index';
 
 @NgModule({
   declarations: [
-    NullablePipe
+    NullablePipe,
+    UnderMaintenanceComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
-    NullablePipe
+    NullablePipe,
+    UnderMaintenanceComponent
   ]
 })
 export class CoreModule { }

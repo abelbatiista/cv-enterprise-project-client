@@ -65,7 +65,11 @@ export class ProfilePictureComponent implements OnInit {
     const file: File = event['target']['files'][0];
     const userDetails: UserDetails = this._authService.userDetails!;
 
-    this._sweetAlertService.dialog()
+    this._sweetAlertService.dialog(
+      'Are you sure?',
+      'You wont be able to revert this!',
+      'warning'
+      )
       .then((result: any): void => {
         if(result.isConfirmed)
         this._fileService.upload(file, userDetails).subscribe(
@@ -83,7 +87,7 @@ export class ProfilePictureComponent implements OnInit {
           }
         );
         else if(result.dismiss === Swal.DismissReason.cancel)
-          this._sweetAlertService.centerAlert('Error', 'An error ocurred!', 'error');
+          this._sweetAlertService.centerAlert('Cancelled', 'You have cancelled!', 'error');
       });
       
   }

@@ -16,13 +16,13 @@ export class SweetAlertService {
 
   public constructor() { }
 
-  public dialog(): Promise<SweetAlertResult<void>> {
+  public dialog(title: string, html: string, icon: SweetAlertIcon): Promise<SweetAlertResult<void>> {
     return this.swalWithBootstrapButtons.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'error',
+      title: title,
+      text: html,
+      icon: icon,
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, do it!',
       cancelButtonText: 'No, cancel!',
       reverseButtons: true
     });
